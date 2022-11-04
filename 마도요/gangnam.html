@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="{% static 'img/icons/icon-48x48.png' %}" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Beaconomic Project</title>
+
+	<link href="{% static 'css/app.css'  %}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	
+
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong></strong> Beaconomic - 강남구 </h1>
+
+					<div class="row">
+						<div class="col-xl-6 col-xxl-5 d-flex">
+							<div class="w-100">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">CCTV 개수</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="truck"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{data_2021.cnt_cctv}}</h1>
+												<div class="mb-0">
+													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">주변 경찰서 숫자</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="users"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{data_2021.cnt_police}}</h1>
+												<div class="mb-0">
+													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">가로등 숫자</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="dollar-sign"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{data_2021.cnt_light}}</h1>
+												<div class="mb-0">
+													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">여성가구</h5>
+													</div>
+
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="shopping-cart"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{data_2021.female_population}}</h1>
+												<div class="mb-0">
+													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 col-xxl-7">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">112 신고건수 발생량 그래프</h5>
+								</div>
+								<div class="card-body py-3">
+									<div class="chart chart-sm">
+										<canvas id="chartjs-dashboard-line"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">5대 범죄 발생 비율</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<div class="chart chart-xs">
+												<canvas id="chartjs-dashboard-pie"></canvas>
+											</div>
+										</div>
+
+										<table class="table mb-0">
+											<tbody>
+												<tr>
+													<td>Chrome</td>
+													<td class="text-end">4306</td>
+												</tr>
+												<tr>
+													<td>Firefox</td>
+													<td class="text-end">3801</td>
+												</tr>
+												<tr>
+													<td>IE</td>
+													<td class="text-end">1689</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">여기다 서울시 종합 치안 지수 전처리한 데이터 시각화 이미지 삽입</h5>
+									<body>
+									
+
+										<div id="map" style="width:900px;height:400px;"></div>
+										<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	b368e489a242ca431c3222cd69f832bf"></script>
+										<script>
+											var container = document.getElementById('map');
+											var options = {
+												center: new kakao.maps.LatLng(37.5662952, 126.977945115),
+												level: 9
+											};
+									
+											var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+												mapOption = { 
+													center: new kakao.maps.LatLng(37.5662952, 126.977945115), // 지도의 중심좌표
+													level: 9 // 지도의 확대 레벨
+												};
+									
+												var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+												mapOption = { 
+													center: new kakao.maps.LatLng(37.5662952, 126.977945115), // 지도의 중심좌표
+													level: 9 // 지도의 확대 레벨
+												};
+
+											var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+
+										
+									
+											var position =  new kakao.maps.LatLng(37.52579, 127.0483);
+											var marker = new kakao.maps.Marker({
+											position: position,
+											clickable: true 
+											});
+											marker.setMap(map);
+											var iwContent = '<div style="padding:5px;">강남구<br><a href="http://127.0.0.1:8000/gangnam/" style="color:blue" target="_blank">바로가기</a></div>', 다
+												iwRemoveable = true; 
+							
+											var infowindow = new kakao.maps.InfoWindow({
+												content : iwContent,
+												removable : iwRemoveable
+											});
+											kakao.maps.event.addListener(marker, 'click', function() {
+												infowindow.open(map, marker);  
+											});
+
+
+											var position1 =  new kakao.maps.LatLng(37.49093, 127.0329);
+											var marker1 = new kakao.maps.Marker({
+											position: position1,
+											clickable: true 
+											});
+											marker1.setMap(map);
+											var iwContent1 = '<div style="padding:5px;">서초구<br><a href="http://127.0.0.1:8000/seocho/" style="color:blue" target="_blank">바로가기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+												iwRemoveable = true; 
+							
+											var infowindow1 = new kakao.maps.InfoWindow({
+												content : iwContent1,
+												removable : iwRemoveable
+											});
+											kakao.maps.event.addListener(marker1, 'click', function() {
+												infowindow1.open(map, marker1);  
+											});
+
+
+											var position2 =  new kakao.maps.LatLng(37.51871, 126.9364);
+											var marker2 = new kakao.maps.Marker({
+											position: position2,
+											clickable: true 
+											});
+											marker2.setMap(map);
+											var iwContent2 = '<div style="padding:5px;">동작구<br><a href="http://127.0.0.1:8000/dongjak/" style="color:blue" target="_blank">바로가기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+												iwRemoveable = true; 
+							
+											var infowindow2 = new kakao.maps.InfoWindow({
+												content : iwContent2,
+												removable : iwRemoveable
+											});
+											kakao.maps.event.addListener(marker2, 'click', function() {
+												infowindow2.open(map, marker2);  
+											});
+
+
+											var position3 =  new kakao.maps.LatLng(37.50237, 126.8890);
+											var marker3 = new kakao.maps.Marker({
+											position: position3,
+											clickable: true 
+											});
+											marker3.setMap(map);
+											var iwContent3 = '<div style="padding:5px;">구로구<br><a href="http://127.0.0.1:8000/guro/" style="color:blue" target="_blank">바로가기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+												iwRemoveable = true; 
+							
+											var infowindow3 = new kakao.maps.InfoWindow({
+												content : iwContent3,
+												removable : iwRemoveable
+											});
+											kakao.maps.event.addListener(marker3, 'click', function() {
+												infowindow3.open(map, marker3);  
+											});
+
+
+											var position4 =  new kakao.maps.LatLng(37.5169508, 126.8665644);
+											var marker4 = new kakao.maps.Marker({
+											position: position4,
+											clickable: true 
+											});
+											marker4.setMap(map);
+											var iwContent4 = '<div style="padding:5px;">양천구<br><a href="http://127.0.0.1:8000/yangcheon/" style="color:blue" target="_blank">바로가기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+												iwRemoveable = true; 
+							
+											var infowindow4 = new kakao.maps.InfoWindow({
+												content : iwContent4,
+												removable : iwRemoveable
+											});
+											kakao.maps.event.addListener(marker4, 'click', function() {
+												infowindow4.open(map, marker4);  
+											});
+
+
+											var position =  new kakao.maps.LatLng(37.52579, 127.0483);
+											var marker = new kakao.maps.Marker({
+											position: position,
+											clickable: true 
+											});
+											marker.setMap(map);
+											var iwContent = '<div style="padding:5px;">강남구<br><a href="http://127.0.0.1:8000/gangdong/" style="color:blue" target="_blank">바로가기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+												iwRemoveable = true; 
+							
+											var infowindow = new kakao.maps.InfoWindow({
+												content : iwContent,
+												removable : iwRemoveable
+											});
+											kakao.maps.event.addListener(marker, 'click', function() {
+												infowindow.open(map, marker);  
+											});
+										
+											
+											
+									
+									
+											
+									
+										</script>
+
+								</body>
+								</div>
+								<div class="card-body px-4">
+									<div id="world_map" style="height:350px;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									
+
+									<h5 class="card-title mb-0">서울시 자치구 버튼</h5>
+
+									<table class="table table-hover my-0">
+										<thead>
+											<tr>
+												<th></th>
+												<th class="d-none d-xl-table-cell"></th>
+												<th class="d-none d-xl-table-cell"></th>
+												<th></th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gangnam/'">강남</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gangdong/'">강동</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gangbuk/'">강북</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gangseo/'">강서</button></td>
+												
+											</tr>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gwanak/'">관악</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gwangjin/'">광진</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/guro/'">구로</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/geumcheon/'">금천</button></td>
+											</tr>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/nowon/'">노원</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/dobong/'">도봉</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/dongdaemun/'">동대문</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/dongjak/'">동작</button></td>										
+											</tr>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/mapo/'">마포</button></td>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/seodaemun/'">서대문</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/seocho/'">서초</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/seongdong/'">성동</button>
+											</tr>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/seongbuk/'">성북</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/songpa/'">송파</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/yangcheon/'">양천</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/yeongdeungpo/'">영등포</button>
+											</tr>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/yongsan/'">용산</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/eunpyeong/'">은평</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/jongno/'">종로</button>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/junggu/'">중구</button>											</tr>
+											<tr>
+												<td class="d-none d-xl-table-cell"><button type="button" class="btn btn-outline-primary" onclick = "location.href='http://127.0.0.1:8000/jungnang/'">중랑구</button>
+											</tr>
+										
+										</tbody>
+									</table>
+									
+									
+									
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="chart">
+											<div id="datetimepicker-dashboard"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">아래 테이블 삭제후 종합 치안 지수와 112 신고 건수 예측 숫자 칸에 꽉차게 숫자만 크게 넣어야함ㄴ</h5>
+								</div>
+								<table class="table table-hover my-0" >
+									
+									<tbody>
+										<tr height="200">
+											<td style="vertical-align: middle; text-align: center; font-size: 200%;"><strong>112 신고 건수 예측량:122966</strong></td>
+											
+											
+										</tr>
+										<tr height="200">
+											<td style="vertical-align: middle; text-align: center; font-size: 200%;"><strong>종합 치안 안전 지수:</strong></td>
+											
+										</tr>
+										
+									</tbody>
+									
+								</table>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">각종 사회 안전망 링크 버튼</h5>
+									<table class="table table-hover my-0">
+										<thead>
+											<tr>
+												<th>Name</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><button type="button" class="btn btn-outline-primary" onclick="location.href='http://127.0.0.1:8000/gangnam/'">경찰서 상세 위치</button></td>
+												
+											</tr>
+											<tr>
+												<td>성범죄자 위치 알림 포털</td>
+												
+											</tr>
+											<tr>
+												
+											
+										</tbody>
+									</table>
+								</div>
+								<div class="card-body d-flex w-100">
+									<div class="align-self-center chart chart-lg">
+										<canvas id="chartjs-dashboard-bar"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-start">
+							<p class="mb-0">
+								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-end">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="{% static 'js/app.js' %}"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
+			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+			// Line chart
+			new Chart(document.getElementById("chartjs-dashboard-line"), {
+				type: "line",
+				data: {
+					labels: ["2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+					datasets: [{
+						label: "발생량",
+						fill: true,
+						backgroundColor: gradient,
+						borderColor: window.theme.primary,
+						data: [
+							169303,
+							167991,
+							170135,
+							168832,
+							173487,
+							169761,
+							173441
+						]
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					tooltips: {
+						intersect: false
+					},
+					hover: {
+						intersect: true
+					},
+					plugins: {
+						filler: {
+							propagate: false
+						}
+					},
+					scales: {
+						xAxes: [{
+							reverse: true,
+							gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+						}],
+						yAxes: [{
+							ticks: {
+								stepSize: 5000
+							},
+							display: true,
+							borderDash: [3, 3],
+							gridLines: {
+								color: "rgba(0,0,0,0.0)"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Pie chart
+			new Chart(document.getElementById("chartjs-dashboard-pie"), {
+				type: "pie",
+				data: {
+					labels: ["Chrome", "Firefox", "IE"],
+					datasets: [{
+						data: [4306, 3801, 1689],
+						backgroundColor: [
+							window.theme.primary,
+							window.theme.warning,
+							window.theme.danger
+						],
+						borderWidth: 5
+					}]
+				},
+				options: {
+					responsive: !window.MSInputMethodContext,
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					cutoutPercentage: 75
+				}
+			});
+		});
+	</script>
+	
+	
+	
+
+</body>
+
+
+
+</html>
